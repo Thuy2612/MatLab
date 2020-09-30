@@ -1,16 +1,18 @@
-%U=220V
-momen=[0 10 20 30 40 50]
-tocdo=[750 729.5 708.2 687.3 663.2 638.7]
-plot(momen,tocdo,'-.r*','LineWidth',2)
+clear all; clc;
+U=380/sqrt(3);
+p=2;
+P=1000;
+w0=2*pi*50/p;
+R1=3.28;
+R2=1.167;
+L1=0.0039;
+L2=0.0029;
+X=2*pi*50*L1;
+Xnm=2*X
 
-%U=200V
-hold on;
-grid;
-momen=[0 10 20 30 40 50]
-tocdo=[750 725.1 699.4 672 642.7 611]
+Mth=(3*U*U)/(2*w0*(R1+sqrt(R1*R1+Xnm*Xnm)))
+Mmm=(3*U*U*R2)/(w0*((R1+R2)*(R1+R2)+Xnm*Xnm))
+
+momen=[0 5 10 15 20 25]
+tocdo=[1464 1457 1445 1412 1375 1334]
 plot(momen,tocdo,':bs','LineWidth',2)
-
-%U=180V
-momen=[0 10 20 30 40 50]
-tocdo=[750 719.2 686.7 651.6 613.1 568.4]
-plot(momen,tocdo,'--mo','LineWidth',2)
